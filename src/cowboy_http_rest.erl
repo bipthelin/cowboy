@@ -740,7 +740,7 @@ put_resource(Req, State, OnTrue) ->
 %% The callback will then be called and is expected to process the content
 %% pushed to the resource in the request body.
 patch_resource(Req, State) ->
-	case call(Req, State, content_types_modify) of
+	case call(Req, State, content_types_accepted) of
 		no_call ->
 			respond(Req, State, 415);
 		{halt, Req2, HandlerState} ->
